@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { ChevronDown, Github, Linkedin, Mail, Download, ExternalLink, Calendar, MapPin, Send, Moon, Sun } from "lucide-react"
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
-import {Container } from "tsparticles-engine";
+import { Container } from "tsparticles-engine";
 
 export default function Portfolio() {
   const [showFullBio, setShowFullBio] = useState(false)
