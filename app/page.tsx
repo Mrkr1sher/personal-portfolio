@@ -1,6 +1,6 @@
 'use client';
 import { useState, useEffect } from 'react'
-import { motion, useViewportScroll, useTransform, useSpring, useScroll } from 'framer-motion'
+import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
 import { OrbitControls } from '@react-three/drei'
@@ -36,7 +36,7 @@ export default function Portfolio() {
     }
   }, [darkMode])
 
-  const fullBio = `As a passionate and driven Computer Science student at Georgia Institute of Technology, I am deeply committed to pushing the boundaries of technology and innovation. My academic journey, focused on Artificial Intelligence and Information Internetworks, has equipped me with a robust foundation in cutting-edge areas such as Natural Language Processing, Computer Vision, and Deep Learning. This theoretical knowledge, combined with my practical experience at companies like Glean and Roblox, has honed my ability to tackle complex technological challenges with creativity and precision. My internship experiences have not only sharpened my technical skills but also instilled in me the importance of creating scalable, efficient solutions that can handle real-world data volumes and user interactions. As I continue to grow and learn, I am excited about the possibilities that lie ahead in the ever-evolving world of technology, and I am eager to contribute my skills and passion to innovative projects that push the boundaries of what's possible in computer science.`
+  const fullBio = `As a passionate and driven Computer Science student at Georgia Institute of Technology, I am deeply committed to pushing the boundaries of technology and innovation. My academic journey, focused on Artificial Intelligence and Information Internetworks, has equipped me with a robust foundation in cutting-edge areas such as Natural Language Processing, Computer Vision, and Deep Learning. This theoretical knowledge, combined with my practical experience at companies like Glean and Roblox, has honed my ability to tackle complex technological challenges with creativity and precision. My internship experiences have not only sharpened my technical skills but also instilled in me the importance of creating scalable, efficient solutions that can handle real-world data volumes and user interactions. As I continue to grow and learn, I am excited about the possibilities that lie ahead in the ever-evolving world of technology, and I am eager to contribute my skills and passion to innovative projects that push the boundaries of what is possible in computer science.`
 
   const skills = [
     { name: "Python", category: "Languages" },
@@ -468,7 +468,7 @@ export default function Portfolio() {
                       <CardDescription>Python, PyTorch, Transformers, Llama 3.1, NLP</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="mb-4">This is an LLM-based chatbot designed to revolutionize language learning. It simulates immersive Spanish language exposure within a constrained environment, gradually expanding the learner's vocabulary while focusing on contextual learning. By adapting its responses based on the learner's existing knowledge and incrementally introducing new words, the system aligns with Krashen's input hypothesis. This tool aims to provide meaningful conversation practice for learners who lack access to fluent speakers, offering a personalized and engaging approach to Spanish language acquisition.</p>
+                      <p className="mb-4">This is an LLM-based chatbot designed to revolutionize language learning. It simulates immersive Spanish language exposure within a constrained environment, gradually expanding the learner's vocabulary while focusing on contextual learning. By adapting its responses based on the learner's existing knowledge and incrementally introducing new words, the system aligns with Krashens input hypothesis. This tool aims to provide meaningful conversation practice for learners who lack access to fluent speakers, offering a personalized and engaging approach to Spanish language acquisition.</p>
                       <motion.img
                         src="/proj2.png?height=60&width=80"
                         alt="Language Learning Image"

@@ -3,7 +3,6 @@ import { useFrame, useLoader, extend } from '@react-three/fiber';
 import { Center } from '@react-three/drei';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
-import * as THREE from 'three';
 
 extend({ TextGeometry });
 
