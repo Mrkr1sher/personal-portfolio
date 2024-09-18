@@ -21,9 +21,10 @@ export default function Portfolio() {
   const yRange = useTransform(scrollYProgress, [0, 1], [0, 100])
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 })
 
-  const particlesInit = async (main) => {
-    await loadFull(main)
-  }
+  const particlesInit = async (engine: any): Promise<void> => {
+    console.log(engine);
+    await loadFull(engine);
+  };
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
   if (container) {
