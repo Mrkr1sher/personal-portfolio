@@ -1,10 +1,9 @@
 'use client';
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, useViewportScroll, useTransform, useSpring, useScroll } from 'framer-motion'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
-import { OrbitControls, Text3D, Center } from '@react-three/drei'
-import * as THREE from 'three'
+import { OrbitControls } from '@react-three/drei'
 import RotatingText from './RotatingText'  // Adjust the import path as needed
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
