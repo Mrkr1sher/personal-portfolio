@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import { useFrame, useLoader, extend } from '@react-three/fiber';
 import { Center } from '@react-three/drei';
-import { FontLoader } from 'three/examples/jsm/loaders/FontLoader';
-import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry';
+import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
+import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 
 extend({ TextGeometry });
 
