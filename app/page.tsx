@@ -468,7 +468,7 @@ export default function Portfolio() {
                       <CardDescription>Python, PyTorch, Transformers, Llama 3.1, NLP</CardDescription>
                     </CardHeader>
                     <CardContent>
-                      <p className="mb-4">This is an LLM-based chatbot designed to revolutionize language learning. It simulates immersive Spanish language exposure within a constrained environment, gradually expanding the learner's vocabulary while focusing on contextual learning. By adapting its responses based on the learner's existing knowledge and incrementally introducing new words, the system aligns with Krashens input hypothesis. This tool aims to provide meaningful conversation practice for learners who lack access to fluent speakers, offering a personalized and engaging approach to Spanish language acquisition.</p>
+                      <p className="mb-4">This is an LLM-based chatbot designed to revolutionize language learning. It simulates immersive Spanish language exposure within a constrained environment, gradually expanding the learner&apos;s vocabulary while focusing on contextual learning. By adapting its responses based on the learner&apos;s existing knowledge and incrementally introducing new words, the system aligns with Krashens input hypothesis. This tool aims to provide meaningful conversation practice for learners who lack access to fluent speakers, offering a personalized and engaging approach to Spanish language acquisition.</p>
                       <motion.img
                         src="/proj2.png?height=60&width=80"
                         alt="Language Learning Image"
