@@ -6,6 +6,14 @@ import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
 import * as THREE from 'three';
 
 extend({ TextGeometry });
+
+declare global {
+    namespace JSX {
+      interface IntrinsicElements {
+        textGeometry: any;
+      }
+    }
+  }
 interface RotatingTextProps {
     text: string; // Explicitly define the type of 'text'
   }

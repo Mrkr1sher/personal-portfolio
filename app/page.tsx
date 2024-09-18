@@ -12,6 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { ChevronDown, Github, Linkedin, Mail, Download, ExternalLink, Calendar, MapPin, Send, Moon, Sun } from "lucide-react"
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
+import { Engine, Container } from "@tsparticles/engine";
 
 export default function Portfolio() {
   const [showFullBio, setShowFullBio] = useState(false)
@@ -20,13 +21,15 @@ export default function Portfolio() {
   const yRange = useTransform(scrollYProgress, [0, 1], [0, 100])
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 })
 
-  const particlesInit = async (main) => {
-    await loadFull(main)
-  }
+  const particlesInit = async (engine: Engine): Promise<void> => {
+    await loadFull(engine);
+  };
 
-  const particlesLoaded = (container) => {
-    console.log(container)
-  }
+  const particlesLoaded = async (container: Container | undefined): Promise<void> => {
+    if (container) {
+      console.log(container);
+    }
+  };
 
   useEffect(() => {
     if (darkMode) {
