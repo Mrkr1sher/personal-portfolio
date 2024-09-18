@@ -3,11 +3,15 @@ import { useFrame, useLoader, extend } from '@react-three/fiber';
 import { Center } from '@react-three/drei';
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader.js';
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry.js';
+import * as THREE from 'three';
 
 extend({ TextGeometry });
+interface RotatingTextProps {
+    text: string; // Explicitly define the type of 'text'
+  }
 
-const RotatingText = ({ text }) => {
-  const mesh = useRef()
+const RotatingText: React.FC<RotatingTextProps> = ({ text }) => {
+  const mesh = useRef<THREE.Mesh | null>(null);
   const font = useLoader(FontLoader, '/fonts/helvetiker_regular.typeface.json')
 
   const textOptions = {
