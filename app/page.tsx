@@ -441,10 +441,16 @@ export default function Portfolio() {
                 whileTap={{ scale: 0.8 }}
                 className="mt-6"
               >
+                 <a
+              href="https://drive.google.com/file/d/1a37UEBCHPMD2b-ZtNbHeZDYluFZ6P-yl/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
                 <Button className="bg-gradient-to-r from-purple-700 to-blue-600 text-white hover:from-purple-500 hover:to-blue-700 transition-all duration-300">
                   <Download className="mr-2 h-4 w-4" />
-                  Download Full Resume
+                  View Full Resume
                 </Button>
+                </a>
               </motion.div>
             </CardContent>
           </Card>
@@ -483,10 +489,16 @@ export default function Portfolio() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.95 }}
                       >
+                        <a
+              href="https://github.com/Mrkr1sher"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
                         <Button className="bg-gradient-to-r from-purple-700 to-blue-600 text-white hover:from-purple-500 hover:to-blue-700 transition-all duration-300">
                           <ExternalLink className="mr-2 h-4 w-4" />
                           View Project
                         </Button>
+                        </a>
                       </motion.div>
                     </CardContent>
                   </Card>
@@ -508,10 +520,16 @@ export default function Portfolio() {
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.95 }}
                       >
+                         <a
+              href="https://github.com/Mrkr1sher"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
                         <Button className="bg-gradient-to-r from-purple-700 to-blue-600 text-white hover:from-purple-500 hover:to-blue-700 transition-all duration-300">
                           <ExternalLink className="mr-2 h-4 w-4" />
                           View Project
                         </Button>
+                        </a>
                       </motion.div>
                     </CardContent>
                   </Card>
