@@ -1,5 +1,5 @@
 'use client';
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { motion, useViewportScroll, useTransform, useSpring } from 'framer-motion'
 import { Canvas } from '@react-three/fiber'
 import { Suspense } from 'react'
@@ -12,7 +12,7 @@ import { Badge } from "@/components/ui/badge"
 import { ChevronDown, Github, Linkedin, Mail, Download, ExternalLink, Calendar, MapPin, Send, Moon, Sun } from "lucide-react"
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
-import { Container } from "tsparticles-engine";
+import { Container, Engine } from "tsparticles-engine";
 
 export default function Portfolio() {
   const [showFullBio, setShowFullBio] = useState(false)
@@ -21,16 +21,22 @@ export default function Portfolio() {
   const yRange = useTransform(scrollYProgress, [0, 1], [0, 100])
   const pathLength = useSpring(yRange, { stiffness: 400, damping: 90 })
 
-  const particlesInit = async (engine: any): Promise<void> => {
+  // Refs for each section
+  const aboutRef = useRef(null)
+  const skillsRef = useRef(null)
+  const educationRef = useRef(null)
+  const projectsRef = useRef(null)
+  const contactRef = useRef(null)
+
+  const particlesInit = async (engine: Engine): Promise<void> => {
     console.log(engine);
-    await loadFull(engine);
+    await loadFull(engine as any);
   };
 
-  const particlesLoaded = async (container?: Container): Promise<void> => {
+  const particlesLoaded = async (container: Container | undefined) => {
   if (container) {
     console.log(container);
-  }
-  return Promise.resolve();  // Ensure it returns a Promise<void>
+  };
 };
 
   useEffect(() => {
@@ -99,9 +105,13 @@ export default function Portfolio() {
     }
   ]
 
+  const scrollToSection = (ref: React.RefObject<HTMLElement>) => {
+    ref.current?.scrollIntoView({ behavior: 'smooth' })
+  }
+
   return (
     <div className={`min-h-screen ${darkMode ? 'bg-gray-900 text-white' : 'bg-gray-100 text-gray-900'} transition-all duration-500 overflow-hidden`}>
-      <Particles
+    <Particles
         id="tsparticles"
         init={particlesInit}
         loaded={particlesLoaded}
@@ -190,48 +200,57 @@ export default function Portfolio() {
           <h1 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-700 to-blue-600">
             Krish Thawani
           </h1>
-          <nav className="flex items-center space-x-4">
-            <motion.a
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              whileTap={{ scale: 0.8 }}
-              href="https://linkedin.com/in/krish-thawani"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-500 hover:text-blue-600 transition-colors duration-300"
-            >
-              <Linkedin className="w-6 h-6" />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              whileTap={{ scale: 0.8 }}
-              href="https://github.com/yourgithub"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-gray-600 hover:text-gray-700 transition-colors duration-300"
-            >
-              <Github className="w-6 h-6" />
-            </motion.a>
-            <motion.a
-              whileHover={{ scale: 1.2, rotate: 360 }}
-              whileTap={{ scale: 0.8 }}
-              href="mailto:krishthawani@gatech.edu"
-              className="text-red-500 hover:text-red-600 transition-colors duration-300"
-            >
-              <Mail className="w-6 h-6" />
-            </motion.a>
-            <motion.div
-              whileHover={{ scale: 1.2 }}
-              whileTap={{ scale: 0.8 }}
-            >
-              <Button
-                variant="outline"
-                size="icon"
-                onClick={() => setDarkMode(!darkMode)}
-                className={`ml-4 ${darkMode ? 'bg-gray-700 text-yellow-300' : 'bg-yellow-100 text-gray-900'} rounded-full`}
+          <nav className="flex items-center">
+            <div className="space-x-4 mr-8">
+              <Button variant="ghost" onClick={() => scrollToSection(aboutRef)}>About</Button>
+              <Button variant="ghost" onClick={() => scrollToSection(skillsRef)}>Skills</Button>
+              <Button variant="ghost" onClick={() => scrollToSection(educationRef)}>Education</Button>
+              <Button variant="ghost" onClick={() => scrollToSection(projectsRef)}>Projects</Button>
+              <Button variant="ghost" onClick={() => scrollToSection(contactRef)}>Contact</Button>
+            </div>
+            <div className="flex items-center space-x-4">
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{ scale: 0.8 }}
+                href="https://linkedin.com/in/krish-thawani"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-blue-500 hover:text-blue-600 transition-colors duration-300"
               >
-                {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-              </Button>
-            </motion.div>
+                <Linkedin className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{ scale: 0.8 }}
+                href="https://github.com/Mrkr1sher"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-600 hover:text-gray-700 transition-colors duration-300"
+              >
+                <Github className="w-6 h-6" />
+              </motion.a>
+              <motion.a
+                whileHover={{ scale: 1.2, rotate: 360 }}
+                whileTap={{ scale: 0.8 }}
+                href="mailto:krishthawani@gatech.edu"
+                className="text-red-500 hover:text-red-600 transition-colors duration-300"
+              >
+                <Mail className="w-6 h-6" />
+              </motion.a>
+              <motion.div
+                whileHover={{ scale: 1.2 }}
+                whileTap={{ scale: 0.8 }}
+              >
+                <Button
+                  variant="outline"
+                  size="icon"
+                  onClick={() => setDarkMode(!darkMode)}
+                  className={`ml-4 ${darkMode ? 'bg-gray-700 text-yellow-300' : 'bg-yellow-100 text-gray-900'} rounded-full`}
+                >
+                  {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                </Button>
+              </motion.div>
+            </div>
           </nav>
         </motion.div>
       </header>
@@ -294,6 +313,7 @@ export default function Portfolio() {
 
         {/* Biography */}
         <motion.div
+          ref={aboutRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -320,6 +340,7 @@ export default function Portfolio() {
 
         {/* Skills Section */}
         <motion.div
+          ref={skillsRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -367,6 +388,7 @@ export default function Portfolio() {
 
         {/* Education and Experience Section */}
         <motion.div
+          ref={educationRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -458,6 +480,7 @@ export default function Portfolio() {
 
         {/* Projects Showcase */}
         <motion.div
+          ref={projectsRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
@@ -541,6 +564,7 @@ export default function Portfolio() {
 
         {/* Get In Touch */}
         <motion.div
+          ref={contactRef}
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1 }}
